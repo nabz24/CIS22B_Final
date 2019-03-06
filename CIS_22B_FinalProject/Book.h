@@ -2,22 +2,16 @@
 #include <iostream>
 #include <string>
 
-
-
-#ifndef Book_h
-#define Book_h
-
-
 class Book
 {
 private:
 	std::string ISBN;
-	std::string Title;
-	std::string Author;
-	std::string Publisher;
+	std::string title;
+	std::string author;
+	std::string publisher;
 	int quantity;
 	double wholeSaleCost;
-	double RetailPrice;
+	double retailPrice;
 	//Date added
 
 
@@ -40,11 +34,11 @@ public:
 	double getRetailPrice() const { return RetailPrice; }
 	int
 
-		//The accessor for the interator
-		static int getBookCount() { return quantity; }
+	//The accessor for the interator
+	static int getBookCount() { return quantity; }
 
 	//mutators or setters
-	void setISBN(std::string m) {  }
+	void setISBN(std::string m);
 	void setTitle(std::string);
 	void setRetailPrice(double);
 	void setAuthor(double);
@@ -63,7 +57,3 @@ public:
 
 
 
-
-
-
-#endif /* Book_h */
