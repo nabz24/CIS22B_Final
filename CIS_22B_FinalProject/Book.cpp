@@ -15,7 +15,7 @@ Book::Book(std::string ISB, std::string Ti, std::string Au, std::string Publish,
 	std::cout << "Constructor for object " << title << " with full initialization list called ..." << std::endl;
 }
 
-Book::Book(const car &orig)
+Book::Book(const Book &orig)
 {
 	this->ISBN = orig.ISBN;
 	this->title = orig.title;
@@ -29,8 +29,57 @@ Book::Book(const car &orig)
 
 Book::~Book()
 {
-	std::cout << make << " object is being destroyed ..." << std::endl;
+
 }
 
 
 //std::string Book::set
+
+// Accessor or getters
+std::string Book::getISBN() const 
+{ 
+	return ISBN; 
+};
+
+std::string Book::getTitle() const 
+{ 
+	return title; 
+}
+std::string Book::getAuthor() const
+{ 
+	return author; 
+}
+int Book::getwholeSaleCost() const
+{ 
+	return wholeSaleCost;
+}
+double Book::getRetailPrice() const
+{ 
+	return retailPrice; 
+}
+
+
+//mutators or setters
+void Book::setISBN(std::string m)
+{
+	ISBN = m;
+}
+void Book::setTitle(std::string t)
+{
+	title = t;
+}
+void Book::setRetailPrice(double price)
+{
+	retailPrice = price;
+}
+
+void Book::setAuthor(std::string auth)
+{
+	author = auth;
+}
+
+void Book::setPublisher(std::string pub)
+{
+	publisher = pub;
+}
+

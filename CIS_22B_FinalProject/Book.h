@@ -28,23 +28,23 @@ public:
 
 	// Accessor or getters
 	std::string getISBN() const { return ISBN; };
-	std::string getTitle() const { return Title; }
-	std::string getAuthor() const { return Author; }
+	std::string getTitle() const { return title; }
+	std::string getAuthor() const { return author; }
 	int getwholeSaleCost() const { return wholeSaleCost; }
-	double getRetailPrice() const { return RetailPrice; }
-	int
+	double getRetailPrice() const { return retailPrice; }
+	
 
-	//The accessor for the interator
-	static int getBookCount() { return quantity; }
+
+	
 
 	//mutators or setters
 	void setISBN(std::string m);
-	void setTitle(std::string);
-	void setRetailPrice(double);
-	void setAuthor(double);
-	void setPublisher(double);
+	void setTitle(std::string t);
+	void setRetailPrice(double price);
+	void setAuthor(std::string auth);
+	void setPublisher(std::string pub);
 
-	//
+	
 
 
 	//operating overloading
