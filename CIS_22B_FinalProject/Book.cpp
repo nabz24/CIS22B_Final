@@ -12,7 +12,7 @@ Book::Book(std::string ISB, std::string Ti, std::string Au, std::string Publish,
 	quantity = quant;
 	wholeSaleCost = wholeSale;
 	retailPrice = retail;
-	std::cout << "Constructor for object " << title << " with full initialization list called ..." << std::endl;
+
 }
 
 Book::Book(const Book &orig)
@@ -24,7 +24,7 @@ Book::Book(const Book &orig)
 	this->quantity = orig.quantity;
 	this->wholeSaleCost = orig.wholeSaleCost;
 	this->retailPrice = orig.retailPrice;
-	std::cout << "Copy constuctor for object " << this->title << " with partial initialization list called ..." << std::endl;
+
 }
 
 Book::~Book()

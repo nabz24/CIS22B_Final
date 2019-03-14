@@ -27,11 +27,11 @@ public:
 	~Book();
 
 	// Accessor or getters
-	std::string getISBN() const { return ISBN; };
-	std::string getTitle() const { return title; }
-	std::string getAuthor() const { return author; }
-	int getwholeSaleCost() const { return wholeSaleCost; }
-	double getRetailPrice() const { return retailPrice; }
+	std::string getISBN() const;
+	std::string getTitle() const;
+	std::string getAuthor() const;
+	int getwholeSaleCost() const;
+	double getRetailPrice() const;
 	
 
 

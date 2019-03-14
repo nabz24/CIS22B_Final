@@ -5,10 +5,15 @@
 
 using namespace std;
 
+void DisplayMenu();
+void CashierDisplayMenu();
+int binarySearch(Book array[], int size, string value);
+void DisplayTotalMenu(double Total);
 
 
 
 int main() {
+
 
 
 	Book Becoming("9781524763138", "Becoming", "Michelle Obama", "Crown Publishing Group", 5, 15.00, 19.50);
@@ -21,69 +26,111 @@ int main() {
 
 	Book arr[5] = { Becoming, WhereTheCrawdadsSing, YouAreMyHappy, TheUmbrellaAcademy, TheMeullerReport };
 
-      
+	int selection;
 
 
-		double total = 0.00;
-		double price;
-		char selection;
-		const double tax = 1.087;
-		int fCount = 0;
-		int sCount = 0;
-		int xCount = 0;
-		double tax_included_price = 0;
-		double totalTax = 0.0;
+
+	DisplayMenu();
+	cin >> selection;
+	
+	if (selection == 1)
+	{
+		
+		string isbn;
+		double total = 0.0;
 
 		do
 		{
-			DisplayMenu();
-			price = 0;
-			cout << "Make your selection : ";
-			cin >> selection;
-			switch (toupper(selection))
-			{
-			case 1:
-				price = ;
-				fCount += 1;
-				break;
-			case 2:
-				price = ;
-				sCount += 1;
-				break;
-			case 3:
-				price = ;
-				xCount += 1;
-				break;
-			case 'T':
-				break;
-			default:
-				cout << "Illegal selection, try again." << endl;
-			}
-			total += price;
-			totalTax = total * .087;
-			tax_included_price = total * tax;
-		} while (selection != 'T' && selection != 't');
+			
+			
+			int position;
 
-		cout << "The sub total is $" << fixed << setprecision(2) << total << endl;
-		cout << "The total tax is $" << fixed << setprecision(2) << totalTax << endl;
-		cout << "The total is $" << fixed << setprecision(2) << tax_included_price << endl;
-		return 0;
+			CashierDisplayMenu();
+			cin >> isbn;
+			if (isbn != "Q")
+			{
+				position = binarySearch(arr, 5, isbn);
+				cout << arr[position].getRetailPrice() << endl;
+				total += arr[position].getRetailPrice();
+				
+			}
+
+		} while (isbn != "Q");
+		DisplayTotalMenu(total);
+		
+	}
+
+
+
+	system("pause");
+
+	
+
+
+	
+
+}
+
+void DisplayMenu()
+{
+	cout << "==============================================================" << endl;
+	cout << "                      Serendipity Boosellers" << endl;
+	cout << "==============================================================" << endl;
+	cout << "Please enter the number of the module you would like to use:" << endl;
+	cout << "1. Cashier Module" << endl;
+	cout << "2. Inventory Database Module" << endl;
+	cout << "3. Report Module" << endl;
+	cout << "4. Exit Program" << endl;
+};
+
+void CashierDisplayMenu()
+{
+
+	cout << "==============================================================" << endl;
+	cout << "                     Cashier Module" << endl;
+	cout << "==============================================================" << endl;
+	cout << "Please enter ISBN of book:" << endl;
+
+
+	
+
+};
+
+void DisplayTotalMenu(double Tot)
+{
+	double total = Tot;
+	double totalTax = total * .087;
+	double tax_included_price = total * 1.087;
+	cout << "                     Total" << endl;
+	cout << "==============================================================" << endl;
+	cout << "The sub total is $"<< total << endl;
+	cout << "The total tax is $" << totalTax << endl;
+	cout << "The total is $" <<  tax_included_price << endl;
 	
 
 
 
 
+};
 
-}void DisplayMenu(arr)
-{
-	cout << endl;   // blank line before start of menu
-	for( int item; item < 5; item++)
-	{ 
-		cout << item << "=" << arr[5] <<  "$" << arr[5] << endl;
+int binarySearch(Book array[], int size, string value) {
+	int first = 0,             // First array element
+		last = size - 1,       // Last array element
+		middle,                // Mid point of search
+		position = -1;         // Position of search value
+	bool found = false;        // Flag
+	while (!found && first <= last)
+	{
+		middle = (first + last) / 2;     // Calculate mid point
+		if (array[middle].getISBN() == value)      // If value is found at mid
+		{
+			found = true;
+			position = middle;
+		}
+		else if (array[middle].getISBN() > value)  // If value is in lower half
+			last = middle - 1;
+		else
+			first = middle + 1;           // If value is in upper half
 	}
-
-	cout << "F = falafel  $5.15" << endl;
-	cout << "S = soda     $2.24" << endl;
-	cout << "X = extras   $1.57" << endl;
-	cout << "T = total" << endl;
+	return position;
 }
