@@ -12,9 +12,10 @@ Book::Book(std::string ISB, std::string Ti, std::string Au, std::string Publish,
 	quantity = quant;
 	wholeSaleCost = wholeSale;
 	retailPrice = retail;
+
 	added = addedIn;
 	published = publishedIn;
-	std::cout << "Constructor for object " << title << " with full initialization list called ..." << std::endl;
+	//std::cout << "Constructor for object " << this->title << " with full initialization list called ..." << std::endl;
 }
 Book::Book(){
 		//std::cout << "default cons. called" << std::endl;;
@@ -29,9 +30,11 @@ Book::Book(const Book &orig)
 	this->quantity = orig.quantity;
 	this->wholeSaleCost = orig.wholeSaleCost;
 	this->retailPrice = orig.retailPrice;
+
 	this->published = orig.published;
 	this->added = orig.added;
-	std::cout << "Copy constuctor for object " << this->title << " with partial initialization list called ..." << std::endl;
+	//std::cout << "Copy constuctor for object " << this->title << " with partial initialization list called ..." << std::endl;
+
 }
 
 Book::~Book()
@@ -105,6 +108,29 @@ std::string toString(){
 	std::string ans = ISBN + "|" + title + "|" + author + "|" + publisher + "|" + quantity + "|"+ retailPrice + "|"+ wholeSaleCost + "|"+ published.toString() + "|"+ added.toString();
 }
 */
+std::string Book::getISBN() const 
+{ 
+	return ISBN; 
+};
+
+std::string Book::getTitle() const 
+{ 
+	return title; 
+}
+std::string Book::getAuthor() const
+{ 
+	return author; 
+}
+int Book::getwholeSaleCost() const
+{ 
+	return wholeSaleCost;
+}
+double Book::getRetailPrice() const
+{ 
+	return retailPrice; 
+}
+
+
 //mutators or setters
 void Book::setISBN(std::string m)
 {

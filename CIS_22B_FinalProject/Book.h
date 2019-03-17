@@ -48,17 +48,31 @@ public:
 																			};
 
 
+	std::string getISBN() const;
+	std::string getTitle() const;
+	std::string getAuthor() const;
+	int getwholeSaleCost() const;
+	double getRetailPrice() const;
+	
+
+
+	
 
 	//mutators or setters
 	void setISBN(std::string m);
 	void setTitle(std::string t);
 	void setRetailPrice(double price);
+
 	void setWholesale(double price);
 	void setAuthor(std::string auth);
 	void setPublisher(std::string pub);
 	void setQuantity(int pub);
 
 
+	void setAuthor(std::string auth);
+	void setPublisher(std::string pub);
+
+	
 
 	//operating overloading
 //    example
