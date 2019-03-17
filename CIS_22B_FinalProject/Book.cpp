@@ -15,7 +15,9 @@ Book::Book(std::string ISB, std::string Ti, std::string Au, std::string Publish,
 	added = addedIn;
 	published = publishedIn;
 	std::cout << "Constructor for object " << title << " with full initialization list called ..." << std::endl;
-
+	added = addedIn;
+	published = publishedIn;
+	//std::cout << "Constructor for object " << this->title << " with full initialization list called ..." << std::endl;
 }
 
 Book::Book(){
@@ -33,6 +35,9 @@ Book::Book(const Book &orig)
 	this->retailPrice = orig.retailPrice;
 	this->published = orig.published;
 	this->added = orig.added;
+	//std::cout << "Copy constuctor for object " << this->title << " with partial initialization list called ..." << std::endl;
+	this->published = orig.published;
+	this->added = orig.added;
 	std::cout << "Copy constuctor for object " << this->title << " with partial initialization list called ..." << std::endl;
 }
 
@@ -40,6 +45,39 @@ Book::~Book()
 {
 
 }
+Book::Book(std::string toParse){
+	std::string toTrunc = toParse;
+
+
+	ISBN = toTrunc.substr(0, toTrunc.find("|"));
+	toTrunc = toTrunc.substr(toTrunc.find("|")+1);
+//	std::cout << toTrunc;
+
+
+	title = toTrunc.substr(0, toTrunc.find("|"));
+	toTrunc = toTrunc.substr(toTrunc.find("|")+1);
+
+	author = toTrunc.substr(0, toTrunc.find("|"));
+	toTrunc = toTrunc.substr(toTrunc.find("|")+1);
+
+	publisher = toTrunc.substr(0, toTrunc.find("|"));
+	toTrunc = toTrunc.substr(toTrunc.find("|")+1);
+
+	quantity = std::stoi(toTrunc.substr(0, toTrunc.find("|")));
+	toTrunc = toTrunc.substr(toTrunc.find("|")+1);
+
+	wholeSaleCost = std::stod(toTrunc.substr(0, toTrunc.find("|")));
+	toTrunc = toTrunc.substr(toTrunc.find("|")+1);
+
+	retailPrice = std::stod(toTrunc.substr(0, toTrunc.find("|")));
+	toTrunc = toTrunc.substr(toTrunc.find("|")+1);
+
+	published = Date(toTrunc.substr(0, toTrunc.find("|")));
+	toTrunc = toTrunc.substr(toTrunc.find("|")+1);
+
+	added = Date(toTrunc);
+}
+
 
 Book::Book(std::string toParse){
 	std::string toTrunc = toParse;
@@ -157,4 +195,3 @@ void Book::setPublisher(std::string pub)
 {
 	publisher = pub;
 }
-
