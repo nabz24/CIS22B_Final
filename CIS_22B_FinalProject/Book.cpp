@@ -15,7 +15,9 @@ Book::Book(std::string ISB, std::string Ti, std::string Au, std::string Publish,
 	added = addedIn;
 	published = publishedIn;
 	std::cout << "Constructor for object " << title << " with full initialization list called ..." << std::endl;
+
 }
+
 Book::Book(){
 		//std::cout << "default cons. called" << std::endl;;
 }
@@ -38,6 +40,7 @@ Book::~Book()
 {
 
 }
+
 Book::Book(std::string toParse){
 	std::string toTrunc = toParse;
 
@@ -76,6 +79,7 @@ Book::Book(std::string toParse){
 //std::string Book::set
 
 // Accessor or getters
+
 /*
 std::string Book::getISBN() const
 {
@@ -105,6 +109,31 @@ std::string toString(){
 	std::string ans = ISBN + "|" + title + "|" + author + "|" + publisher + "|" + quantity + "|"+ retailPrice + "|"+ wholeSaleCost + "|"+ published.toString() + "|"+ added.toString();
 }
 */
+
+std::string Book::getISBN() const 
+{ 
+	return ISBN; 
+};
+
+std::string Book::getTitle() const 
+{ 
+	return title; 
+}
+std::string Book::getAuthor() const
+{ 
+	return author; 
+}
+int Book::getwholeSaleCost() const
+{ 
+	return wholeSaleCost;
+}
+double Book::getRetailPrice() const
+{ 
+	return retailPrice; 
+}
+
+
+
 //mutators or setters
 void Book::setISBN(std::string m)
 {
@@ -128,3 +157,4 @@ void Book::setPublisher(std::string pub)
 {
 	publisher = pub;
 }
+
