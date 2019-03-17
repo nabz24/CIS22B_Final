@@ -61,7 +61,7 @@ int main() {
 			}
 
 		} while (isbn != "Q");
-		cout << receipt << endl;
+		
 
 		DisplayTotalMenu(total);
 		
