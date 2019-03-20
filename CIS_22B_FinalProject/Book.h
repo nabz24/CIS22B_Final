@@ -35,7 +35,8 @@ public:
 	inline int getQuantity() const {return quantity;}
 	inline Date getPublished() const {return published;}
 	inline Date getAdded() const {return added;}
-	/*inline*/ std::string toString();/*
+	/*inline*/ 
+	virtual std::string toString();/*
 		{	if(ISBN.size() != 0)
 				return (ISBN + "|" + title + "|" + author + "|" + publisher + "|" + std::to_string(quantity) + "|"+ std::to_string(retailPrice) + "|"+ std::to_string(wholeSaleCost) + "|"
 					+ (published.getDay() < 10 ? "0":"") + std::to_string(published.getDay())

@@ -5,16 +5,28 @@
 using namespace std;
 
 
-string History::getTimeInHistory() const
+string History::getTimeInHistoryStart() const
 {
-	return timeInHisotry;
+	return timeInHisotryStart;
+}
+
+string History::getTimeInHistoryEnd() const
+{
+	return timeInHisotryEnd;
 }
 
 // mutators
 
-void History::setTimeInHistory(string T)
+void History::setTimeInHistoryStart(string T)
 {
 
-	timeInHisotry = T;
+	timeInHisotryStart = T;
+
+};
+
+void History::setTimeInHistoryEnd(string e)
+{
+
+	timeInHisotryStart = e;
 
 };

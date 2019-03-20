@@ -15,6 +15,7 @@ void DisplayTotalMenu(double Total);
 void selectionSort(Book array[], int size);
 Book *readFile(string fileName);
 void writeFile(string fileName, Book* data);
+int count_underscores(string s);
 
 
 
@@ -26,21 +27,21 @@ int main() {
 	Book TheUmbrellaAcademy("9781593079789", "The Umbrella Academy, Volume 1: Apocalypse Suite", "Gerard Way, Gabriel Ba (Artist)", "Dark Horse Comics", 5, 9.50, 11.90);
 	Book TheMeullerReport("9781510750166", "The Meuller Report", "Robert S. Mueller III", "Skyhorse", 5, 10.56, 17.09);
 	*/
-	Sport sam("12345", "eqdedf", "ewdwdf", "ewre", 4, 3.3, 2.2, Date("01022019"), Date("01022019"), "soccer");
-	History ale("12345", "eqdedf", "ewdwdf", "ewre", 4, 3.3, 2.2, Date("01022019"), Date("01022019"), "343222");
+	//Sport sam("12345", "eqdedf", "ewdwdf", "ewre", 4, 3.3, 2.2, Date("01022019"), Date("01022019"), "soccer");
+	//History ale("12345", "eqdedf", "ewdwdf", "ewre", 4, 3.3, 2.2, Date("01022019"), Date("01022019"), "343222");
 
-	cout << ale.getTimeInHistory() << endl;
+	//cout << ale.getTimeInHistory() << endl;
 	Book* arr = readFile("DATA.txt");
 	int selection;
 	int numBooks;
 	string textIn;
-	selectionSort(arr, 2);
-	/*
-	for (int i = 0; i < 2; i++)
+	selectionSort(arr, 4);
+	
+	for (int i = 0; i < 4; i++)
 	{
-		cout << arr[i].toString() << endl;
+		cout << arr[i].getISBN() << endl;
 	}
-	*/
+	
 	//cout << arr[0].toString() << endl;
 
 	do {
@@ -210,9 +211,25 @@ Book* readFile(string fileName) {  //----MUST BE DELETED--MUST BE DELETED--MUST 
 	ifstream reader;
 	reader.open(fileName);
 	string parseText = "";
+	
 	while (getline(reader, parseText)) {
-		ans[tmp++] = Book(parseText);
-		//cout << parseText << endl;
+		cout << parseText << endl;
+		int st = count_underscores(parseText);
+		cout << st << endl;
+		if (st == 8) 
+		{
+			ans[tmp++] = Book(parseText);
+			//cout << parseText << endl;
+		}
+		else if(st == 9)
+		{
+			
+			ans[tmp++] = Sport(parseText);
+		}
+		else
+		{
+			ans[tmp++] = History(parseText);
+		}
 	}
 	reader.close();
 	return ans;
@@ -223,9 +240,20 @@ Book* readFile(string fileName) {  //----MUST BE DELETED--MUST BE DELETED--MUST 
 
 void writeFile(string fileName, Book* data) { // DOES THE DELETE ---- DOES THE DELETE ---- DOES THE DELETE ---- DOES THE DELETE ----
 	ofstream writer;
+	cout << "rrrrr" << endl;
 	writer.open(fileName);
 	for (int a = 0; a < 128; a++)
 		writer << data[a].toString() << endl;
 	writer.close();
 	delete[] data;
 };
+
+
+int count_underscores(string s) {
+	int count = 0;
+
+	for (int i = 0; i < s.size(); i++)
+		if (s[i] == '|') count++;
+
+	return count;
+}

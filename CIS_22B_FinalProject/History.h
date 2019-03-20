@@ -6,7 +6,8 @@ using namespace std;
 class History : public Book
 {
 private: 
-	string timeInHisotry;
+	string timeInHisotryStart;
+	string timeInHisotryEnd;
 
 
 public: 
@@ -22,15 +23,45 @@ public:
 	}
 
 	History(string ISBN, std::string Title, std::string Author, std::string Publisher, int quantity, double wholeSaleCost, double RetailPrice, Date publishedIn,
-		Date addedIn, string TimeInHistory) : Book(ISBN, Title, Author, Publisher, quantity, wholeSaleCost, RetailPrice, publishedIn, addedIn)
+		Date addedIn, string TimeInHistoryStart, string TimeInHistoryEnd) : Book(ISBN, Title, Author, Publisher, quantity, wholeSaleCost, RetailPrice, publishedIn, addedIn)
 	{
-		timeInHisotry = TimeInHistory;
+		timeInHisotryStart = TimeInHistoryStart;
+		timeInHisotryEnd = TimeInHistoryEnd;
 	};
 
+	History(const History &orig)
+	{
+		this->timeInHisotryStart = orig.timeInHisotryStart;
+		this->timeInHisotryEnd = orig.timeInHisotryEnd;
+	}
+
+	History(std::string toParse) : Book(toParse) {
+		std::string toTrunc = toParse;
+
+
+
+		toTrunc = toTrunc.substr(toTrunc.find("|") + 1);
+		toTrunc = toTrunc.substr(toTrunc.find("|") + 1);
+		toTrunc = toTrunc.substr(toTrunc.find("|") + 1);
+		toTrunc = toTrunc.substr(toTrunc.find("|") + 1);
+		toTrunc = toTrunc.substr(toTrunc.find("|") + 1);
+		toTrunc = toTrunc.substr(toTrunc.find("|") + 1);
+		toTrunc = toTrunc.substr(toTrunc.find("|") + 1);
+		toTrunc = toTrunc.substr(toTrunc.find("|") + 1);
+		toTrunc = toTrunc.substr(toTrunc.find("|") + 1);
+	
+		timeInHisotryStart = toTrunc;
+		toTrunc = toTrunc.substr(toTrunc.find("|") + 1);
+		timeInHisotryEnd = toTrunc;
+		//std::cout << ISBN;
+	}
+
 	//accesors
-	string getTimeInHistory() const;
+	string getTimeInHistoryStart() const;
+	string getTimeInHistoryEnd() const;
 
 	//setter
-	void setTimeInHistory(string T);
+	void setTimeInHistoryStart(string T);
+	void setTimeInHistoryEnd(string T);
 
 };
