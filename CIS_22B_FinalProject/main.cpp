@@ -128,7 +128,7 @@ int main() {
 							cout << "enter Date Published:"; cin >> textIn; arr[bookToEdit].setPublished(Date(textIn)); break;
 						case 9:
 							cout << "enter Date Added:"; cin >> textIn; arr[bookToEdit].setAdded(Date(textIn)); break;
-						case default:
+						default:
 							selection = 0;break;
 					}
 				}while(selection != 0);
