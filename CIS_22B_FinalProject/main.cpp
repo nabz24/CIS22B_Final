@@ -97,7 +97,7 @@ int main() {
 			for (int a = 0; a < numBooks; a++)
 				cout << a + 1 << ":" << arr[a].toString() << endl;
 			cout << "Enter Book to edit (select book 0 to make a new book):";
-			cin >> bookToEdit;
+			cin >> bookToEdit;cin.clear(); cin.ignore();
 			if(booktoEdit == 0){			
 				cout << "Enter the string representation:\n";
 				cin >> textIn;
@@ -109,25 +109,25 @@ int main() {
 					cin >> selection;
 					switch(selection){
 						case 0:
-							cout << "ok bye"; break;
+							cout << "ok bye"; selection = 0;break;
 						case 1:
-							cout << "enter ISBN:"; cin >> textIn; arr[bookToEdit].setISBN(textIn); break;
+							cout << "enter ISBN:"; getline(cin ,textIn);cin.clear(); cin.ignore(); arr[bookToEdit].setISBN(textIn); break;
 						case 2:
-							cout << "enter Title:"; cin >> textIn; arr[bookToEdit].setTitle(textIn); break;
+							cout << "enter Title:"; getline(cin ,textIn);cin.clear(); cin.ignore(); arr[bookToEdit].setTitle(textIn); break;
 						case 3:
-							cout << "enter Author:"; cin >> textIn; arr[bookToEdit].setAuthor(textIn); break;
+							cout << "enter Author:"; getline(cin ,textIn);cin.clear(); cin.ignore(); arr[bookToEdit].setAuthor(textIn); break;
 						case 4:
-							cout << "enter Publisher:"; cin >> textIn; arr[bookToEdit].setPublisher(textIn); break;
+							cout << "enter Publisher:"; getline(cin ,textIn);cin.clear(); cin.ignore(); arr[bookToEdit].setPublisher(textIn); break;
 						case 5:
-							cout << "enter Quantity:"; cin >> textIn; arr[bookToEdit].setQuantity(stoi(textIn)); break;
+							cout << "enter Quantity:"; getline(cin ,textIn);cin.clear(); cin.ignore(); arr[bookToEdit].setQuantity(stoi(textIn)); break;
 						case 6:
-							cout << "enter WholeSale Cost:"; cin >> textIn; arr[bookToEdit].setWholesale(stod(textIn)); break;
+							cout << "enter WholeSale Cost:"; getline(cin ,textIn);cin.clear(); cin.ignore(); arr[bookToEdit].setWholesale(stod(textIn)); break;
 						case 7:
-							cout << "enter Retail Price:"; cin >> textIn; arr[bookToEdit].setRetailPrice(stod(textIn)); break;
+							cout << "enter Retail Price:"; getline(cin ,textIn);cin.clear(); cin.ignore(); arr[bookToEdit].setRetailPrice(stod(textIn)); break;
 						case 8:
-							cout << "enter Date Published:"; cin >> textIn; arr[bookToEdit].setPublished(Date(textIn)); break;
+							cout << "enter Date Published:"; getline(cin ,textIn);cin.clear(); cin.ignore(); arr[bookToEdit].setPublished(Date(textIn)); break;
 						case 9:
-							cout << "enter Date Added:"; cin >> textIn; arr[bookToEdit].setAdded(Date(textIn)); break;
+							cout << "enter Date Added:"; getline(cin ,textIn);cin.clear(); cin.ignore(); arr[bookToEdit].setAdded(Date(textIn)); break;
 						default:
 							selection = 0;break;
 					}
