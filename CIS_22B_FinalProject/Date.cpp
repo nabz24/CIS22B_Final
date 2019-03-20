@@ -55,6 +55,7 @@ bool Date::operator!=(const Date &r){
 
 std::string Date::toString(){
 	std::string ans = "";
+	if (this == &Date()) { return ""; }
 	if(day <10) ans += "0";
 	ans += day;
 	if(month <10) ans += "0";

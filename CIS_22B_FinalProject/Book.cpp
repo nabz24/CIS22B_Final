@@ -1,3 +1,4 @@
+#pragma once
 #include <stdio.h>
 #include "Book.h"
 #include<string>
@@ -5,31 +6,42 @@
 
 Book::Book(std::string ISB, std::string Ti, std::string Au, std::string Publish, int quant, double wholeSale, double retail, Date publishedIn, Date addedIn)
 {
-	ISBN = ISB;
-	title = Ti;
-	author = Au;
-	publisher = Publish;
+	ISBN = std::string(ISB);
+	title = std::string(Ti);
+	author = std::string(Au);
+	publisher = std::string(Publish);
 	quantity = quant;
 	wholeSaleCost = wholeSale;
 	retailPrice = retail;
 	added = addedIn;
 	published = publishedIn;
 	std::cout << "Constructor for object " << title << " with full initialization list called ..." << std::endl;
-	added = addedIn;
-	published = publishedIn;
+//	added = addedIn;
+	//published = publishedIn;
 	//std::cout << "Constructor for object " << this->title << " with full initialization list called ..." << std::endl;
 }
 
 Book::Book(){
 		//std::cout << "default cons. called" << std::endl;;
+	ISBN = "";
+	title = "";
+	author = "";
+	publisher = "";
+	quantity = 0;
+	wholeSaleCost = 0;
+	retailPrice = 0;
+
+
 }
 
 Book::Book(const Book &orig)
 {
-	this->ISBN = orig.ISBN;
-	this->title = orig.title;
-	this->author = orig.author;
-	this->publisher = orig.publisher;
+	
+	(this->ISBN) = std::string(orig.ISBN);
+	(this->title) = std::string(orig.title);
+	(this->author) = std::string(orig.author);
+	(this->publisher) = std::string(orig.publisher);
+	
 	this->quantity = orig.quantity;
 	this->wholeSaleCost = orig.wholeSaleCost;
 	this->retailPrice = orig.retailPrice;
@@ -49,18 +61,18 @@ Book::Book(std::string toParse){
 	std::string toTrunc = toParse;
 
 
-	ISBN = toTrunc.substr(0, toTrunc.find("|"));
+	ISBN = std::string(toTrunc.substr(0, toTrunc.find("|")));
 	toTrunc = toTrunc.substr(toTrunc.find("|")+1);
-//	std::cout << toTrunc;
+	//std::cout << ISBN;
 
 
-	title = toTrunc.substr(0, toTrunc.find("|"));
-	toTrunc = toTrunc.substr(toTrunc.find("|")+1);
-
-	author = toTrunc.substr(0, toTrunc.find("|"));
+	title = std::string(toTrunc.substr(0, toTrunc.find("|")));
 	toTrunc = toTrunc.substr(toTrunc.find("|")+1);
 
-	publisher = toTrunc.substr(0, toTrunc.find("|"));
+	author = std::string(toTrunc.substr(0, toTrunc.find("|")));
+	toTrunc = toTrunc.substr(toTrunc.find("|")+1);
+
+	publisher = std::string(toTrunc.substr(0, toTrunc.find("|")));
 	toTrunc = toTrunc.substr(toTrunc.find("|")+1);
 
 	quantity = std::stoi(toTrunc.substr(0, toTrunc.find("|")));
@@ -76,9 +88,21 @@ Book::Book(std::string toParse){
 	toTrunc = toTrunc.substr(toTrunc.find("|")+1);
 
 	added = Date(toTrunc);
+	//std::cout << ISBN;
 }
-
-
+std::string Book::toString()
+		{	if(ISBN.size() != 0){
+				return (ISBN + "|" + title + "|" + author + "|" + publisher + "|" + std::to_string(quantity) + "|"+ std::to_string(retailPrice) + "|"+ std::to_string(wholeSaleCost) + "|"
+					+ (published.getDay() < 10 ? "0":"") + std::to_string(published.getDay())
+					+ (published.getMonth() < 10 ? "0" : "") + std::to_string(published.getMonth())
+					+ (published.getYear() < 10 ? "000" : (published.getYear() < 100 ? "00": (published.getYear() < 1000 ? "0" : ""))) + std::to_string(published.getYear()) + "|"
+					+ (added.getDay() < 10 ? "0":"") + std::to_string(added.getDay())
+					+ (added.getMonth() < 10 ? "0" : "") + std::to_string(added.getMonth())
+					+ (added.getYear() < 10 ? "000" : (added.getYear() < 100 ? "00": (added.getYear() < 1000 ? "0" : ""))) + std::to_string(added.getYear()));
+			}
+			return "";
+			};
+/*
 Book::Book(std::string toParse){
 	std::string toTrunc = toParse;
 
@@ -111,7 +135,7 @@ Book::Book(std::string toParse){
 
 	added = Date(toTrunc);
 }
-
+*/
 
 
 //std::string Book::set
@@ -147,7 +171,7 @@ std::string toString(){
 	std::string ans = ISBN + "|" + title + "|" + author + "|" + publisher + "|" + quantity + "|"+ retailPrice + "|"+ wholeSaleCost + "|"+ published.toString() + "|"+ added.toString();
 }
 */
-
+/*
 std::string Book::getISBN() const 
 { 
 	return ISBN; 
@@ -169,10 +193,11 @@ double Book::getRetailPrice() const
 { 
 	return retailPrice; 
 }
-
+*/
 
 
 //mutators or setters
+/*
 void Book::setISBN(std::string m)
 {
 	ISBN = m;
@@ -195,3 +220,4 @@ void Book::setPublisher(std::string pub)
 {
 	publisher = pub;
 }
+*/
