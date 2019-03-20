@@ -31,10 +31,13 @@ int main() {
 
 	cout << ale.getTimeInHistory() << endl;
 	Book* arr = readFile("DATA.txt");
+	arr[3] = sam;
+	arr[4] = ale;
 	int selection;
-	int numBooks;
+	int numBooks=4;
+	int bookToEdit;
 	string textIn;
-	selectionSort(arr, 2);
+	selectionSort(arr, numBooks);
 	/*
 	for (int i = 0; i < 2; i++)
 	{
@@ -91,19 +94,51 @@ int main() {
 		}
 		else if (selection == 2)
 		{
-			for (int a = 0; a < 2; a++)
-				cout << a + 1 << ":" << arr[a].getTitle() << ":" << arr[a].getQuantity() << endl;
-			do {
-				cout << "Enter Book to change quantity:";
-				cin >> numBooks;
-				numBooks--;
-			} while (!(numBooks < 2 && numBooks >=0));
-			do {
-				cout << "Enter new quantity:";
-				cin>>selection;
-			} while (!(selection >= 0));
-
-			arr[numBooks].setQuantity(selection);
+			cout << "Current Inventory:\n";
+			cout << "1:ISBN|2:TITLE|3:AUTHOR|4:PUBLISHER|5:QUANTITY|6:WHOLESALE COST|7:RETAIL PRICE|8:DATE PUBLISHED|9:DATE ADDED\n";
+			cout << "-------------------------------------------------------------------------------------------------------------\n";
+			for (int a = 0; a < numBooks; a++)
+				cout << a + 1 << ":" << arr[a].toString() << endl;
+			cout << "Enter Book to edit (select book 0 to make a new book):";
+			cin >> bookToEdit;
+			if(booktoEdit == 0){			
+				cout << "Enter the string representation:\n";
+				cin >> textIn;
+				arr[numBooks] = Book(textIn);
+			}
+			else{
+				do{
+					cout << "Enter the parameter number you wish to change (or 0 to exit):";
+					cin >> selection;
+					switch(selection){
+						case 0:
+							cout << "ok bye"; break;
+						case 1:
+							cout << "enter ISBN:"; cin >> textIn; arr[bookToEdit].setISBN(textIn); break;
+						case 2:
+							cout << "enter Title:"; cin >> textIn; arr[bookToEdit].setTitle(textIn); break;
+						case 3:
+							cout << "enter Author:"; cin >> textIn; arr[bookToEdit].setAuthor(textIn); break;
+						case 4:
+							cout << "enter Publisher:"; cin >> textIn; arr[bookToEdit].setPublisher(textIn); break;
+						case 5:
+							cout << "enter Quantity:"; cin >> textIn; arr[bookToEdit].setQuantity(stoi(textIn)); break;
+						case 6:
+							cout << "enter WholeSale Cost:"; cin >> textIn; arr[bookToEdit].setWholesale(stod(textIn)); break;
+						case 7:
+							cout << "enter Retail Price:"; cin >> textIn; arr[bookToEdit].setRetailPrice(stod(textIn)); break;
+						case 8:
+							cout << "enter Date Published:"; cin >> textIn; arr[bookToEdit].setPublished(Date(textIn)); break;
+						case 9:
+							cout << "enter Date Added:"; cin >> textIn; arr[bookToEdit].setAdded(Date(textIn)); break;
+						case default:
+							selection = 0;break;
+					}
+				}while(selection != 0);
+			
+			
+			}
+			
 		}
 	} while (selection != 4);
 	writeFile("PROOF.txt", arr);
