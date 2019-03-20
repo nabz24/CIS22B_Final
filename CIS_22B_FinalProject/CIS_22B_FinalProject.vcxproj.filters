@@ -27,6 +27,12 @@
     <ClCompile Include="reportModule.cpp">
       <Filter>Resource Files\Header Files\Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="History.cpp">
+      <Filter>Resource Files\Header Files\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Sport.cpp">
+      <Filter>Resource Files\Header Files\Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Book.h">
@@ -37,6 +43,12 @@
     </ClInclude>
     <ClInclude Include="reportModule.h">
       <Filter>Resource Files\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="History.h">
+      <Filter>Resource Files\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Sport.h">
+      <Filter>Resource Files\Header Files\Source Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

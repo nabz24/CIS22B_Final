@@ -117,13 +117,17 @@
   <ItemGroup>
     <ClCompile Include="Book.cpp" />
     <ClCompile Include="Date.cpp" />
+    <ClCompile Include="History.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="reportModule.cpp" />
+    <ClCompile Include="Sport.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Book.h" />
     <ClInclude Include="Date.h" />
+    <ClInclude Include="History.h" />
     <ClInclude Include="reportModule.h" />
+    <ClInclude Include="Sport.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="DATA.txt" />

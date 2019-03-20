@@ -3,7 +3,8 @@
 #include "Book.h"
 #include <string>
 #include<fstream>
-
+#include "History.h"
+#include "Sport.h"
 
 using namespace std;
 
@@ -25,6 +26,10 @@ int main() {
 	Book TheUmbrellaAcademy("9781593079789", "The Umbrella Academy, Volume 1: Apocalypse Suite", "Gerard Way, Gabriel Ba (Artist)", "Dark Horse Comics", 5, 9.50, 11.90);
 	Book TheMeullerReport("9781510750166", "The Meuller Report", "Robert S. Mueller III", "Skyhorse", 5, 10.56, 17.09);
 	*/
+	Sport sam("12345", "eqdedf", "ewdwdf", "ewre", 4, 3.3, 2.2, Date("01022019"), Date("01022019"), "soccer");
+	History ale("12345", "eqdedf", "ewdwdf", "ewre", 4, 3.3, 2.2, Date("01022019"), Date("01022019"), "343222");
+
+	cout << ale.getTimeInHistory() << endl;
 	Book* arr = readFile("DATA.txt");
 	int selection;
 	int numBooks;
