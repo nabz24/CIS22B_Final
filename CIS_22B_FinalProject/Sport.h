@@ -31,7 +31,7 @@ public:
 		this->sport = orig.sport;
 	}
 
-	Sport(std::string toParse) : Book(toParse){
+	Sport(std::string toParse){
 		std::string toTrunc = toParse;
 
 
