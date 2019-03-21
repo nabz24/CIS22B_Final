@@ -7,7 +7,6 @@
 9781510750166|The Meuller Report|Robert S. Mueller III|Skyhorse|5|10.56|17.09|01011600|01011600
 21234|Harry Potter 1|J.K|BloomsBury Publishing|54|14.90|20.99|02022019|14032019
 2123434|Harry Potter 2|J.K|BloomsBury Publishing|53|14.90|23.99|05022019|18082019
-248564|Harry Potter 3|J.K|BloomsBury Publishing|22|14.90|27.99|09022019|11082019
 48437626|Harry Potter 4|J.K|BloomsBury Publishing|22|12.90|24.99|19022019|10022019
 45332234|Harry Potter 5|J.K|BloomsBury Publishing|26|19.90|23.99|22022019|19052019
 98876644|Harry Potter 6|J.K|BloomsBury Publishing|20|19.90|29.99|10032019|22052019

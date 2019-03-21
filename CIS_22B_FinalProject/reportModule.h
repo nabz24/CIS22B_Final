@@ -1,3 +1,3 @@
 #pragma once
 #include "Book.h"
-void reportModule(Book arr[], Date date[]);
+void reportModule(Book arr[], int numbook);

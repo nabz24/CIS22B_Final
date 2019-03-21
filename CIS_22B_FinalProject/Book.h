@@ -17,6 +17,8 @@ private:
 
 
 public:
+	class InvalidInput
+	{};
 	//Constructor
 	Book();
 	Book(std::string ISBN, std::string Title, std::string Author, std::string Publisher, int quantity, double wholeSaleCost, double RetailPrice, Date publishedIn, Date addedIn);
@@ -64,7 +66,15 @@ public:
 	inline void setTitle(std::string t) { title = t; };
 	inline void setRetailPrice(double price) { retailPrice = price; };
 
-	inline void setWholesale(double price) { wholeSaleCost = price; };
+	void setWholesale(double price) 
+	{
+		if (price >= 0.0)
+		{
+			wholeSaleCost = price;
+		}
+		else
+			throw InvalidInput();
+	};
 	inline void setAuthor(std::string auth) { author = auth; };
 	inline void setPublisher(std::string pub) { publisher = pub; };
 	inline void setQuantity(int pub) { quantity = pub; };

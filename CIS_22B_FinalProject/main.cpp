@@ -5,6 +5,7 @@
 #include <fstream>
 #include "History.h"
 #include "Sport.h"
+#include "reportModule.h"
 
 using namespace std;
 
@@ -22,7 +23,7 @@ int searchList(Book list[], int numElems, string value);
 
 int main() {
 	
-	Book y("1234567890123", "The Bible", "God", "King James", 4, 12.00, 21.34, Date(01, 01, 1600), Date(01, 01, 1600));
+	Book y("1234567890123", "The Bible", "God", "King James", 6, 12.00, 21.34, Date(01, 01, 1600), Date(01, 01, 1600));
 	Book x("1234567890124", "Skipper Ends Racism", "Kowalski", "Youtube", 4, 4.60, 12.45, Date(01, 02, 2019), Date(17, 03, 2019));
 	Book a("1234", "Soccer Baiscs", "Sal Soo", "Youtube", 18, 5.40, 17.20, Date(01, 02, 2019), Date(17, 03, 2019));
 
@@ -63,17 +64,23 @@ int main() {
 				if (isbn != "Q")
 				{
 
-					cout << "Book Found and added" << endl;
 					position = searchList(arr, numBooks, isbn);
-					//cout << position << endl;
-					//cout << arr[position].getRetailPrice() << endl;
-					total += arr[position].getRetailPrice();
-					arr[position].setQuantity(arr[position].getQuantity() - 1);
-					string receiptInput = "";
-					receiptInput = arr[position].getTitle() + "     $" + to_string(arr[position].getRetailPrice());
-					receipt[count] = receiptInput;
-					count++;
-
+					if (position != -1)
+					{
+						//cout << position << endl;
+						//cout << arr[position].getRetailPrice() << endl;
+						total += arr[position].getRetailPrice();
+						arr[position].setQuantity(arr[position].getQuantity() - 1);
+						string receiptInput = "";
+						receiptInput = arr[position].getTitle() + "     $" + to_string(arr[position].getRetailPrice());
+						receipt[count] = receiptInput;
+						count++;
+						cout << "Book Found and added" << endl;
+					}
+					else
+					{
+						cout << "Book not found. Try Agiain" << endl;
+					}
 
 				}
 
@@ -157,14 +164,20 @@ int main() {
 						selection = 0; break;
 					}
 				} while (selection != 0);
-
+		
 
 			}
 		
+		
+		
 		}
-
+		else if (selection == 3)
+		{
+		reportModule(arr, numBooks);
+		cout << "hello" << endl;
+		}
 	} while (selection != 4);
-	writeFile("PROOF.txt", arr);
+	//writeFile("PROOF.txt", arr);
 	system("pause");
 
 }

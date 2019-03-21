@@ -11,7 +11,12 @@ Book::Book(std::string ISB, std::string Ti, std::string Au, std::string Publish,
 	author = std::string(Au);
 	publisher = std::string(Publish);
 	quantity = quant;
-	wholeSaleCost = wholeSale;
+	if (wholeSale >= 0.0)
+	{
+		wholeSaleCost = wholeSale;
+	}
+	else
+		throw InvalidInput();
 	retailPrice = retail;
 	added = addedIn;
 	published = publishedIn;

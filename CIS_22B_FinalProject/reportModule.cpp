@@ -42,7 +42,7 @@
 
 		If choose option 7. -> BREAK
 */
-/*
+
 #include <iostream>
 #include "reportModule.h"
 #include "Book.h"
@@ -50,22 +50,12 @@
 
 using namespace std;
 
-void reportModule(Book arr[], Date date[]) {
+void reportModule(Book arr[], int numbook)
+{
 	//creating copy of the book and date parameters
+	int numBook = numbook;
 	Book bookCopy[66];
 	Date dateCopy[66];
-	for (int x = 0; x < 66; x++) {
-		//for book class
-		bookCopy[x].setTitle(arr[x].getTitle());
-		bookCopy[x].setQuantity(arr[x].getQuantity());
-		bookCopy[x].setWholesale(arr[x].getwholeSaleCost());
-		bookCopy[x].setQuantity(arr[x].getQuantity());
-
-		//for date class
-		dateCopy[x].setDay(date[x].getDay());
-		dateCopy[x].setMonth(date[x].getMonth());
-		dateCopy[x].setYear(date[x].getYear());
-	}
 
 
 
@@ -88,60 +78,69 @@ void reportModule(Book arr[], Date date[]) {
 		//If choose option 1. -> Inventory List
 		if (choice == 1)
 		{
-			for (int i = 0; i < 6; i++)
+			cout << "Information about the books will be printed below:" << endl;
+			cout << "------------------------------------------------" << endl;
+			for (int i = 0; i < numBook; i++)
 			{
-				cout << "Information about the books will be printed below:" << endl << endl;
-
-				cout << "The ISBN is:\t" << arr[i].getISBN() << endl;
-				cout << "The title is:\t" << arr[i].getTitle() << endl;
-				cout << "The author is:\t" << arr[i].getAuthor() << endl;
-				cout << "The wholesale cost is:\t" << arr[i].getwholeSaleCost() << endl;
-				cout << "The retail price is:\t" << arr[i].getRetailPrice() << endl;
+				cout << "The ISBN is: " << arr[i].getISBN() << endl;
+				cout << "The title is :" << arr[i].getTitle() << endl;
+				cout << "The author is: " << arr[i].getAuthor() << endl;
+				cout << "The wholesale cost is: " << arr[i].getwholeSaleCost() << endl;
+				cout << "The Quantity price is: " << arr[i].getQuantity() << endl << endl <<endl;
+				
 			}
 		}
 
 		//Inventory Wholesale Value
 		if (choice == 2)
 		{
-			for (int i = 0; i < 6; i++)
+			double total = 0;
+
+			cout << "Title and wholesale value will be printed below:" << endl;
+			cout << "------------------------------------------------" << endl;
+			for (int i = 0; i < numBook; i++)
 			{
-				cout << "Title and wholesale value will be printed below:" << endl << endl;
 
-				cout << "The title is:\t" << arr[i].getTitle() << endl;
-				cout << "The wholesale cost is:\t" << arr[i].getwholeSaleCost() << endl;
+				total += arr[i].getwholeSaleCost();
+				cout << arr[i].getTitle() << " wholesale cost: " << arr[i].getwholeSaleCost() << endl;
 			}
-
+			cout << "Total Wholesale : $" << total << endl;
 		}
 
 		//Inventory Retail Value
 		if (choice == 3)
 		{
-			for (int i = 0; i < 6; i++)
+			double total = 0;
+			cout << "               Retail Inventory Value          :" << endl;
+			cout << "------------------------------------------------" << endl;
+			for (int i = 0; i < numBook; i++)
 			{
-				cout << "Title and retail value will be printed below:" << endl << endl;
-
-				cout << "The title is:\t" << arr[i].getTitle() << endl;
-				cout << "The retail price is:\t" << arr[i].getRetailPrice() << endl;
+				cout << arr[i].getTitle() << "Retail price is:\t" << arr[i].getRetailPrice() << endl;
 			}
+			cout << "Total Retail : $" << total << endl;
 
 		}
 
+
+
 		//List by Quantity
+		
 		if (choice == 4)
 		{
+			
 			//run a selection sort by quantity
-			int size = 66;			//this size should be the amount of books 
+			int size = numbook;			//this size should be the amount of books 
 			int startScan, minIndex;
 			int minValue;
 			for (startScan = 0; startScan < (size - 1); startScan++)
 			{
 				minIndex = startScan;
-				minValue = bookCopy[startScan].getQuantity();
+				minValue = arr[startScan].getQuantity();
 				for (int index = startScan + 1; index < size; index++)
 				{
-					if (bookCopy[index].getQuantity() < minValue)
+					if (arr[index].getQuantity() < minValue)
 					{
-						minValue = bookCopy[index].getQuantity();
+						minValue = arr[index].getQuantity();
 						minIndex = index;
 					}
 				}
@@ -149,12 +148,12 @@ void reportModule(Book arr[], Date date[]) {
 				bookCopy[startScan].setQuantity(minValue);
 			}
 
-			for (int i = 0; i < 6; i++)
+			for (int i = 0; i < numbook; i++)
 			{
 				cout << "Title and quantity of books will be printed below:" << endl << endl;
 
-				cout << "The title is:\t" << bookCopy[i].getTitle() << "\t";
-				cout << "The quantity is:\t" << bookCopy[i].getQuantity() << endl;
+				cout << "The title is:\t" << arr[i].getTitle() << "\t";
+				cout << "The quantity is:\t" << arr[i].getQuantity() << endl;
 			}
 		}
 
@@ -163,7 +162,7 @@ void reportModule(Book arr[], Date date[]) {
 		{
 			int size = 66;			//this size should be the amount of books 
 			int startScan, minIndex;
-			int minValue;
+			double minValue;
 			for (startScan = 0; startScan < (size - 1); startScan++)
 			{
 				minIndex = startScan;
@@ -227,5 +226,7 @@ void reportModule(Book arr[], Date date[]) {
 			}
 		};
 
+
 	}
-	*/
+
+}
