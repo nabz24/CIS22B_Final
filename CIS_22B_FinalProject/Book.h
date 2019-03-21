@@ -36,7 +36,7 @@ public:
 	inline Date getPublished() const {return published;}
 	inline Date getAdded() const {return added;}
 	/*inline*/ 
-	virtual std::string toString();/*
+	std::string toString();/*
 		{	if(ISBN.size() != 0)
 				return (ISBN + "|" + title + "|" + author + "|" + publisher + "|" + std::to_string(quantity) + "|"+ std::to_string(retailPrice) + "|"+ std::to_string(wholeSaleCost) + "|"
 					+ (published.getDay() < 10 ? "0":"") + std::to_string(published.getDay())
@@ -68,7 +68,8 @@ public:
 	inline void setAuthor(std::string auth) { author = auth; };
 	inline void setPublisher(std::string pub) { publisher = pub; };
 	inline void setQuantity(int pub) { quantity = pub; };
-
+	inline void setPublished(Date a) { published = a; };
+	inline void setAdded(Date a) { added = a; };
 
 	//inline void setAuthor(std::string auth);
 	//void setPublisher(std::string pub);

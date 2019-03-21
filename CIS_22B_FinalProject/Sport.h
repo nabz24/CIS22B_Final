@@ -57,7 +57,7 @@ public:
 
 	//setter
 	void setSport(string s);
-
+	/*
 	string toString()
 	{
 		cout << "dfff" << endl;
@@ -72,4 +72,5 @@ public:
 		}
 		return "";
 	};
+	*/
 };

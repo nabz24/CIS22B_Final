@@ -1,27 +1,3 @@
 1234567890123|The Bible|God|King James|4|1|2|01011600|01011600
 1234567890124|Skipper Ends Racism|Kowalski|Youtube|4|1|5|01022019|17032019
 123456784|test|Kowalski|Youtube|4|1|5|01022019|17032019
-1234|Soccer Baiscs|Sal Soo|Youtube|20|1.2|5.4|01022019|17032019|Soccer
-5678|Skipper Ends Racism|Kowalski|Youtube|22|1.60|52.56|01022019|10032019|01020100|01040100
-9781524763138|Becoming|Michelle Obama|Crown Publishing Group|5|15.00|19.50|01011600|01011600
-9780735219090|Where the Crawdads Sing|Delia Owens|Penguin Publishing Group|5|10.00|15.60|01022019|17032019
-9780062931030|You Are My Happy|Hoda Kotb|Suzie Mason(Illustrator)|HarperCollins Publishers|5| 10.56| 17.09|06012019|17032019
-9781593079789|The Umbrella Academy| Volume 1: Apocalypse Suite|Gerard Way|Gabriel Ba (Artist)|Dark Horse Comics|5|9.50|11.90|06022019|10032019
-9781510750166|The Meuller Report|Robert S. Mueller III|Skyhorse|5|10.56|17.09|01011600|01011600
-21234|Harry Potter 1|J.K|BloomsBury Publishing|54|14.90|20.99|02022019|14032019
-2123434|Harry Potter 2|J.K|BloomsBury Publishing|53|14.90|23.99|05022019|18082019
-248564|Harry Potter 3|J.K|BloomsBury Publishing|22|14.90|27.99|09022019|11082019
-48437626|Harry Potter 4|J.K|BloomsBury Publishing|22|12.90|24.99|19022019|10022019
-45332234|Harry Potter 5|J.K|BloomsBury Publishing|26|19.90|23.99|22022019|19052019
-98876644|Harry Potter 6|J.K|BloomsBury Publishing|20|19.90|29.99|10032019|22052019
-9884745332|Harry Potter 7|J.K|BloomsBury Publishing|20|12.90|43.99|02042019|27042019
-85645343|Football Basics|Kowalski|Youtube|20|1|5|01052019|17072019|Football
-9567465|Begining of Racism|Kowalski|Youtube|22|1|5|01022019|17032019|02010100|03010100
-85735345|Basketball Basics|Kowalski|Youtube|20|1|5|01052019|17072019|Basketball
-854843634534|Vikings|Kowalski|Youtube|22|1|5|01022019|17032019|03060100|01070100
-3242354|Lord Of The Rings 1|J.R|BloomsBury Publishing|54|14.90|20.99|02022019|14032019
-567658758|Lord Of The Rings 2|J.R|BloomsBury Publishing|53|14.90|23.99|05022019|18082019
-9766574|Lord Of The Rings 3|J.R|BloomsBury Publishing|22|14.90|27.99|09022019|11082019
-4856543|Lord Of The Rings 4|J.R|BloomsBury Publishing|22|12.90|24.99|19022019|10022019
-476876867|Lord Of The Rings 5|J.R|BloomsBury Publishing|26|19.90|23.99|22022019|19052019
-983278733|Lord Of The Rings 6|J.R|BloomsBury Publishing|20|19.90|29.99|10032019|22052019

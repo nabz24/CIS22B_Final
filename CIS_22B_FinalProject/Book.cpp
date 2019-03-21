@@ -92,6 +92,7 @@ Book::Book(std::string toParse){
 }
 std::string Book::toString()
 		{	if(ISBN.size() != 0){
+				std::cout << "dfff" << std::endl;
 				return (ISBN + "|" + title + "|" + author + "|" + publisher + "|" + std::to_string(quantity) + "|"+ std::to_string(retailPrice) + "|"+ std::to_string(wholeSaleCost) + "|"
 					+ (published.getDay() < 10 ? "0":"") + std::to_string(published.getDay())
 					+ (published.getMonth() < 10 ? "0" : "") + std::to_string(published.getMonth())
