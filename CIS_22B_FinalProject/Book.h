@@ -68,7 +68,8 @@ public:
 	inline void setAuthor(std::string auth) { author = auth; };
 	inline void setPublisher(std::string pub) { publisher = pub; };
 	inline void setQuantity(int pub) { quantity = pub; };
-
+	inline void setPublished(Date a){published = a;};
+	inline void setAdded(Date a){added = a;};
 
 	//inline void setAuthor(std::string auth);
 	//void setPublisher(std::string pub);
