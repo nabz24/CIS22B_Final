@@ -23,9 +23,9 @@ int main() {
 	
 	Book* arr = readFile("DATA.txt");
 	int selection;
-	int numBooks = 3;
+	int numBooks = 26;
 	string textIn;
-	selectionSort(arr, 26);
+	selectionSort(arr, numBooks);
 	int bookToEdit;
 
 	do {
@@ -79,7 +79,7 @@ int main() {
 			cout << "Current Inventory:\n";
 			cout << "1:ISBN|2:TITLE|3:AUTHOR|4:PUBLISHER|5:QUANTITY|6:WHOLESALE COST|7:RETAIL PRICE|8:DATE PUBLISHED|9:DATE ADDED\n";
 			cout << "-------------------------------------------------------------------------------------------------------------\n";
-			for (int a = 0; a < 3; a++)
+			for (int a = 0; a < numBooks; a++)
 				cout << a + 1 << ":" << arr[a].toString() << endl;
 			cout << "Enter Book to edit (select book 0 to make a new book):";
 			cin >> bookToEdit;
@@ -87,34 +87,59 @@ int main() {
 				cout << "Enter the string representation:\n";
 				cin.clear(); 
 				cin.ignore();
-				getline(cin,textIn);
-				arr[numBooks] = Book(textIn);
+				getline(cin,textIn);cin.clear(); cin.ignore();
+				arr[numBooks++] = Book(textIn);
 			}
 			else {
 				do {
 					cout << "Enter the parameter number you wish to change (or 0 to exit):";
 					cin >> selection;
 					switch (selection) {
-					case 0:
-						cout << "ok bye"; break;
 					case 1:
-						cout << "enter ISBN:"; cin >> textIn; arr[bookToEdit].setISBN(textIn); break;
+						cout << "enter ISBN:"; 
+						getline(cin,textIn);cin.clear(); cin.ignore(); 
+						arr[bookToEdit].setISBN(textIn);
+						break;
 					case 2:
-						cout << "enter Title:"; cin >> textIn; arr[bookToEdit].setTitle(textIn); break;
+						cout << "enter Title:";
+						getline(cin,textIn);cin.clear(); cin.ignore();
+						arr[bookToEdit].setTitle(textIn); 
+						break;
 					case 3:
-						cout << "enter Author:"; cin >> textIn; arr[bookToEdit].setAuthor(textIn); break;
+						cout << "enter Author:"; 
+						getline(cin,textIn);cin.clear(); cin.ignore(); 
+						arr[bookToEdit].setAuthor(textIn); 
+						break;
 					case 4:
-						cout << "enter Publisher:"; cin >> textIn; arr[bookToEdit].setPublisher(textIn); break;
+						cout << "enter Publisher:"; 
+						getline(cin,textIn);cin.clear(); cin.ignore(); 
+						arr[bookToEdit].setPublisher(textIn); 
+						break;
 					case 5:
-						cout << "enter Quantity:"; cin >> textIn; arr[bookToEdit].setQuantity(stoi(textIn)); break;
+						cout << "enter Quantity:"; 
+						getline(cin,textIn);cin.clear(); cin.ignore(); 
+						arr[bookToEdit].setQuantity(stoi(textIn)); 
+						break;
 					case 6:
-						cout << "enter WholeSale Cost:"; cin >> textIn; arr[bookToEdit].setWholesale(stod(textIn)); break;
+						cout << "enter WholeSale Cost:"; 
+						getline(cin,textIn);cin.clear(); cin.ignore();
+						arr[bookToEdit].setWholesale(stod(textIn));
+						break;
 					case 7:
-						cout << "enter Retail Price:"; cin >> textIn; arr[bookToEdit].setRetailPrice(stod(textIn)); break;
+						cout << "enter Retail Price:"; 
+						getline(cin,textIn);cin.clear(); cin.ignore(); 
+						arr[bookToEdit].setRetailPrice(stod(textIn)); 
+						break;
 					case 8:
-						cout << "enter Date Published:"; cin >> textIn; arr[bookToEdit].setPublished(Date(textIn)); break;
+						cout << "enter Date Published:"; 
+						getline(cin,textIn);cin.clear(); cin.ignore();
+						arr[bookToEdit].setPublished(Date(textIn));
+						break;
 					case 9:
-						cout << "enter Date Added:"; cin >> textIn; arr[bookToEdit].setAdded(Date(textIn)); break;
+						cout << "enter Date Added:"; 
+						getline(cin,textIn);cin.clear(); cin.ignore();
+						arr[bookToEdit].setAdded(Date(textIn)); 
+						break;
 					default:
 						selection = 0; break;
 					}
@@ -257,7 +282,7 @@ Book* readFile(string fileName) {  //----MUST BE DELETED--MUST BE DELETED--MUST 
 
 void writeFile(string fileName, Book* data) { // DOES THE DELETE ---- DOES THE DELETE ---- DOES THE DELETE ---- DOES THE DELETE ----
 	ofstream writer;
-	cout << "rrrrr" << endl;
+	//cout << "rrrrr" << endl;
 	writer.open(fileName);
 	for (int a = 0; a < 128; a++)
 		writer << data[a].toString() << endl;
