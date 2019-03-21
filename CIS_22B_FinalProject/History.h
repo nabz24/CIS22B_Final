@@ -35,7 +35,7 @@ public:
 		this->timeInHisotryEnd = orig.timeInHisotryEnd;
 	}
 
-	History(std::string toParse) : Book(toParse) {
+	History(std::string toParse) {
 		std::string toTrunc = toParse;
 
 
