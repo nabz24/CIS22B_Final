@@ -2,7 +2,7 @@
 #include <iomanip>
 #include "Book.h"
 #include <string>
-#include<fstream>
+#include <fstream>
 #include "History.h"
 #include "Sport.h"
 
@@ -20,29 +20,18 @@ int count_underscores(string s);
 
 
 int main() {
-	/*
-	Book Becoming("9781524763138", "Becoming", "Michelle Obama", "Crown Publishing Group", 5, 15.00, 19.50);
-	Book WhereTheCrawdadsSing("9780735219090", "Where the Crawdads Sing", "Delia Owens", "Penguin Publishing Group", 5, 10.00, 15.60);
-	Book YouAreMyHappy("9780062931030", "You Are My Happy", "Hoda Kotb, Suzie Mason(Illustrator)", "HarperCollins Publishers", 5, 10.56, 17.09);
-	Book TheUmbrellaAcademy("9781593079789", "The Umbrella Academy, Volume 1: Apocalypse Suite", "Gerard Way, Gabriel Ba (Artist)", "Dark Horse Comics", 5, 9.50, 11.90);
-	Book TheMeullerReport("9781510750166", "The Meuller Report", "Robert S. Mueller III", "Skyhorse", 5, 10.56, 17.09);
-	*/
-	//Sport sam("12345", "eqdedf", "ewdwdf", "ewre", 4, 3.3, 2.2, Date("01022019"), Date("01022019"), "soccer");
-	//History ale("12345", "eqdedf", "ewdwdf", "ewre", 4, 3.3, 2.2, Date("01022019"), Date("01022019"), "343222");
-
-	//cout << ale.getTimeInHistory() << endl;
+	
 	Book* arr = readFile("DATA.txt");
 	int selection;
 	int numBooks;
 	string textIn;
-	selectionSort(arr, 4);
+	selectionSort(arr, 26);
 	
-	for (int i = 0; i < 4; i++)
+	for (int i = 0; i < 26; i++)
 	{
-		cout << arr[i].getISBN() << endl;
+		cout << arr[i].toString() << endl;
 	}
 	
-	//cout << arr[0].toString() << endl;
 
 	do {
 		DisplayMenu();
@@ -213,21 +202,23 @@ Book* readFile(string fileName) {  //----MUST BE DELETED--MUST BE DELETED--MUST 
 	string parseText = "";
 	
 	while (getline(reader, parseText)) {
-		cout << parseText << endl;
 		int st = count_underscores(parseText);
-		cout << st << endl;
 		if (st == 8) 
 		{
+			cout << "ffff" << endl;
 			ans[tmp++] = Book(parseText);
 			//cout << parseText << endl;
 		}
 		else if(st == 9)
 		{
-			
+			cout << "221" << endl;
 			ans[tmp++] = Sport(parseText);
+			cout << "done" << endl;
+
 		}
 		else
 		{
+			cout << "424424" << endl;
 			ans[tmp++] = History(parseText);
 		}
 	}

@@ -48,10 +48,12 @@ public:
 		toTrunc = toTrunc.substr(toTrunc.find("|") + 1);
 		toTrunc = toTrunc.substr(toTrunc.find("|") + 1);
 		toTrunc = toTrunc.substr(toTrunc.find("|") + 1);
+		timeInHisotryStart = toTrunc.substr(toTrunc.find("|") + 1);
+		cout << "8888888" << endl;
+		cout << timeInHisotryStart  << endl;
 		toTrunc = toTrunc.substr(toTrunc.find("|") + 1);
-	
-		timeInHisotryStart = toTrunc;
-		toTrunc = toTrunc.substr(toTrunc.find("|") + 1);
+		cout << "-------------" << endl;
+		cout << toTrunc << endl;
 		timeInHisotryEnd = toTrunc;
 		//std::cout << ISBN;
 	}
