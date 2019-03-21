@@ -11,23 +11,33 @@ using namespace std;
 void DisplayMenu();
 void CashierDisplayMenu();
 int binarySearch(Book array[], int size, string value);
-void DisplayTotalMenu(double Total);
+void DisplayTotalMenu(double Tot, string arr[], int coun);
 void selectionSort(Book array[], int size);
 Book *readFile(string fileName);
 void writeFile(string fileName, Book* data);
 int count_underscores(string s);
+int searchList(Book list[], int numElems, string value);
 
 
 
 int main() {
 	
-	Book* arr = readFile("DATA.txt");
+	Book y("1234567890123", "The Bible", "God", "King James", 4, 12.00, 21.34, Date(01, 01, 1600), Date(01, 01, 1600));
+	Book x("1234567890124", "Skipper Ends Racism", "Kowalski", "Youtube", 4, 4.60, 12.45, Date(01, 02, 2019), Date(17, 03, 2019));
+	Book a("1234", "Soccer Baiscs", "Sal Soo", "Youtube", 18, 5.40, 17.20, Date(01, 02, 2019), Date(17, 03, 2019));
+
+
+
+
+	//Book* arr = readFile("DATA.txt");
+	Book arr[3] = { y,x,a };
 	int selection;
 	int numBooks = 3;
+	
 	string textIn;
-	selectionSort(arr, 26);
 	int bookToEdit;
 
+	
 	do {
 		DisplayMenu();
 		cin >> selection;
@@ -53,13 +63,15 @@ int main() {
 				if (isbn != "Q")
 				{
 
-					cout << isbn << endl;
-					position = binarySearch(arr, 5, isbn);
-					cout << position << endl;
-					cout << arr[position].getRetailPrice() << endl;
+					cout << "Book Found and added" << endl;
+					position = searchList(arr, numBooks, isbn);
+					//cout << position << endl;
+					//cout << arr[position].getRetailPrice() << endl;
 					total += arr[position].getRetailPrice();
 					arr[position].setQuantity(arr[position].getQuantity() - 1);
-					receipt[count] = arr[position].getTitle();
+					string receiptInput = "";
+					receiptInput = arr[position].getTitle() + "     $" + to_string(arr[position].getRetailPrice());
+					receipt[count] = receiptInput;
 					count++;
 
 
@@ -68,53 +80,79 @@ int main() {
 			} while (isbn != "Q");
 
 
-			DisplayTotalMenu(total);
+			DisplayTotalMenu(total, receipt, count);
 
 
 
 
 		}
-		else if(selection == 2)
+
+		else if (selection == 2)
 		{
 			cout << "Current Inventory:\n";
 			cout << "1:ISBN|2:TITLE|3:AUTHOR|4:PUBLISHER|5:QUANTITY|6:WHOLESALE COST|7:RETAIL PRICE|8:DATE PUBLISHED|9:DATE ADDED\n";
 			cout << "-------------------------------------------------------------------------------------------------------------\n";
-			for (int a = 0; a < 3; a++)
+			for (int a = 0; a < numBooks; a++)
 				cout << a + 1 << ":" << arr[a].toString() << endl;
 			cout << "Enter Book to edit (select book 0 to make a new book):";
 			cin >> bookToEdit;
 			if (bookToEdit == 0) {
 				cout << "Enter the string representation:\n";
-				cin.clear(); 
+				cin.clear();
 				cin.ignore();
-				getline(cin,textIn);
-				arr[numBooks] = Book(textIn);
+				getline(cin, textIn); cin.clear(); cin.ignore();
+				arr[numBooks++] = Book(textIn);
 			}
 			else {
 				do {
 					cout << "Enter the parameter number you wish to change (or 0 to exit):";
 					cin >> selection;
 					switch (selection) {
-					case 0:
-						cout << "ok bye"; break;
 					case 1:
-						cout << "enter ISBN:"; cin >> textIn; arr[bookToEdit].setISBN(textIn); break;
+						cout << "enter ISBN:";
+						getline(cin, textIn); cin.clear(); cin.ignore();
+						arr[bookToEdit].setISBN(textIn);
+						break;
 					case 2:
-						cout << "enter Title:"; cin >> textIn; arr[bookToEdit].setTitle(textIn); break;
+						cout << "enter Title:";
+						getline(cin, textIn); cin.clear(); cin.ignore();
+						arr[bookToEdit].setTitle(textIn);
+						break;
 					case 3:
-						cout << "enter Author:"; cin >> textIn; arr[bookToEdit].setAuthor(textIn); break;
+						cout << "enter Author:";
+						getline(cin, textIn); cin.clear(); cin.ignore();
+						arr[bookToEdit].setAuthor(textIn);
+						break;
 					case 4:
-						cout << "enter Publisher:"; cin >> textIn; arr[bookToEdit].setPublisher(textIn); break;
+						cout << "enter Publisher:";
+						getline(cin, textIn); cin.clear(); cin.ignore();
+						arr[bookToEdit].setPublisher(textIn);
+						break;
 					case 5:
-						cout << "enter Quantity:"; cin >> textIn; arr[bookToEdit].setQuantity(stoi(textIn)); break;
+						cout << "enter Quantity:";
+						getline(cin, textIn); cin.clear(); cin.ignore();
+						arr[bookToEdit].setQuantity(stoi(textIn));
+						break;
 					case 6:
-						cout << "enter WholeSale Cost:"; cin >> textIn; arr[bookToEdit].setWholesale(stod(textIn)); break;
+						cout << "enter WholeSale Cost:";
+						getline(cin, textIn); cin.clear(); cin.ignore();
+						arr[bookToEdit].setWholesale(stod(textIn));
+						break;
 					case 7:
-						cout << "enter Retail Price:"; cin >> textIn; arr[bookToEdit].setRetailPrice(stod(textIn)); break;
+						cout << "enter Retail Price:";
+						getline(cin, textIn); cin.clear(); cin.ignore();
+						arr[bookToEdit].setRetailPrice(stod(textIn));
+						break;
 					case 8:
-						cout << "enter Date Published:"; cin >> textIn; arr[bookToEdit].setPublished(Date(textIn)); break;
+						cout << "enter Date Published:";
+						getline(cin, textIn); cin.clear(); cin.ignore();
+						arr[bookToEdit].setPublished(Date(textIn));
+						break;
 					case 9:
-						cout << "enter Date Added:"; cin >> textIn; arr[bookToEdit].setAdded(Date(textIn)); break;
+						cout << "enter Date Added:";
+						getline(cin, textIn); cin.clear(); cin.ignore();
+						arr[bookToEdit].setAdded(Date(textIn));
+						break;
 					default:
 						selection = 0; break;
 					}
@@ -122,17 +160,12 @@ int main() {
 
 
 			}
-
+		
 		}
-			
+
 	} while (selection != 4);
 	writeFile("PROOF.txt", arr);
 	system("pause");
-
-	
-
-
-	
 
 }
 
@@ -154,29 +187,45 @@ void CashierDisplayMenu()
 	cout << "==============================================================" << endl;
 	cout << "                     Cashier Module" << endl;
 	cout << "==============================================================" << endl;
-	cout << "Please enter ISBN of book:" << endl;
+	cout << "Please enter ISBN of book or Q to quit:" << endl;
 
 
 	
 
 };
 
-void DisplayTotalMenu(double Tot)
+void DisplayTotalMenu(double Tot, string arr[], int coun)
 {
+	int count = coun;
 	double total = Tot;
 	double totalTax = total * .087;
 	double tax_included_price = total * 1.087;
 	cout << "                     Total" << endl;
 	cout << "==============================================================" << endl;
-	cout << "The sub total is $"<< total << endl;
-	cout << "The total tax is $" << totalTax << endl;
-	cout << "The total is $" <<  tax_included_price << endl;
+	for (int i = 0; i < count; i++)
+	{
+		cout << arr[i] << endl;
+	}
+	cout << "The sub total is $"<< total << std::setprecision(2) << fixed << endl;
+	cout << "The total tax is $" << totalTax << std::setprecision(2) << fixed << endl;
+	cout << "The total is $" << tax_included_price << std::setprecision(2) << fixed << endl;
 	
-
-
-
-
 };
+
+int searchList(Book list[], int numElems, string value) 
+	{
+	int index = 0;      // Used as a subscript to search array
+	int position = -1;  // To record position of search  value
+	bool found = false; // Flag to indicate if value was found
+	while (index < numElems&& !found)
+	{
+		if (list[index].getISBN() == value) // If the value is found 
+		{ 
+			found = true; // Set the flag 
+			position = index; // Record the value's subscript
+		}index++; // Go to the next element
+	}return position; // Return the position, or -1
+}
 
 int binarySearch(Book array[], int size, string value) {
 	int first = 0,             // First array element
@@ -221,7 +270,7 @@ void selectionSort(Book array[], int size)
 			}
 		}
 		array[minIndex] = array[startScan];
-		array[startScan].setISBN(minValue);
+		array[startScan] = minValue;
 	}
 }
 Book* readFile(string fileName) {  //----MUST BE DELETED--MUST BE DELETED--MUST BE DELETED--MUST BE DELETED--MUST BE DELETED--MUST BE DELETED
@@ -232,21 +281,13 @@ Book* readFile(string fileName) {  //----MUST BE DELETED--MUST BE DELETED--MUST 
 	string parseText = "";
 	
 	while (getline(reader, parseText)) {
-		int st = count_underscores(parseText);
-		if (st == 8) 
-		{
-			ans[tmp++] = Book(parseText);
-			//cout << parseText << endl;
-		}
-		else if(st == 9)
-		{
-			ans[tmp++] = Sport(parseText);
-
-		}
-		else
-		{
-			ans[tmp++] = History(parseText);
-		}
+	
+		cout << parseText << endl;
+		ans[tmp++] = Book(parseText);
+	
+		
+		//cout << parseText << endl;
+		
 	}
 	reader.close();
 	return ans;

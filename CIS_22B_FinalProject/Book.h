@@ -71,6 +71,10 @@ public:
 	inline void setPublished(Date a) { published = a; };
 	inline void setAdded(Date a) { added = a; };
 
+
+	
+
+
 	//inline void setAuthor(std::string auth);
 	//void setPublisher(std::string pub);
 

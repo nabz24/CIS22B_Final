@@ -42,14 +42,33 @@
 
 		If choose option 7. -> BREAK
 */
-#pragma once
+/*
 #include <iostream>
 #include "reportModule.h"
 #include "Book.h"
+#include "Date.h"
 
 using namespace std;
 
-void reportModule(Book arr[]) {
+void reportModule(Book arr[], Date date[]) {
+	//creating copy of the book and date parameters
+	Book bookCopy[66];
+	Date dateCopy[66];
+	for (int x = 0; x < 66; x++) {
+		//for book class
+		bookCopy[x].setTitle(arr[x].getTitle());
+		bookCopy[x].setQuantity(arr[x].getQuantity());
+		bookCopy[x].setWholesale(arr[x].getwholeSaleCost());
+		bookCopy[x].setQuantity(arr[x].getQuantity());
+
+		//for date class
+		dateCopy[x].setDay(date[x].getDay());
+		dateCopy[x].setMonth(date[x].getMonth());
+		dateCopy[x].setYear(date[x].getYear());
+	}
+
+
+
 	int choice = 0;
 
 	while (choice != 7)
@@ -110,32 +129,103 @@ void reportModule(Book arr[]) {
 		//List by Quantity
 		if (choice == 4)
 		{
+			//run a selection sort by quantity
+			int size = 66;			//this size should be the amount of books 
+			int startScan, minIndex;
+			int minValue;
+			for (startScan = 0; startScan < (size - 1); startScan++)
+			{
+				minIndex = startScan;
+				minValue = bookCopy[startScan].getQuantity();
+				for (int index = startScan + 1; index < size; index++)
+				{
+					if (bookCopy[index].getQuantity() < minValue)
+					{
+						minValue = bookCopy[index].getQuantity();
+						minIndex = index;
+					}
+				}
+				bookCopy[minIndex] = bookCopy[startScan];
+				bookCopy[startScan].setQuantity(minValue);
+			}
 
+			for (int i = 0; i < 6; i++)
+			{
+				cout << "Title and quantity of books will be printed below:" << endl << endl;
 
+				cout << "The title is:\t" << bookCopy[i].getTitle() << "\t";
+				cout << "The quantity is:\t" << bookCopy[i].getQuantity() << endl;
+			}
 		}
 
 		//List by Cost
 		if (choice == 5)
 		{
+			int size = 66;			//this size should be the amount of books 
+			int startScan, minIndex;
+			int minValue;
+			for (startScan = 0; startScan < (size - 1); startScan++)
+			{
+				minIndex = startScan;
+				minValue = bookCopy[startScan].getRetailPrice();
+				for (int index = startScan + 1; index < size; index++)
+				{
+					if (bookCopy[index].getRetailPrice() < minValue)
+					{
+						minValue = bookCopy[index].getRetailPrice();
+						minIndex = index;
+					}
+				}
+				bookCopy[minIndex] = bookCopy[startScan];
+				bookCopy[startScan].setRetailPrice(minValue);
+
+				for (int i = 0; i < 6; i++)
+				{
+					cout << "Title and cost of books will be printed below:" << endl << endl;
+
+					cout << "The title is:\t" << bookCopy[i].getTitle() << "\t";
+					cout << "The cost is:\t" << bookCopy[i].getRetailPrice() << endl;
+				}
+			}
+
+			//List by Age
+			if (choice == 6)
+			{
+				int size = 66;			//this size should be the amount of books 
+				int startScan, minIndex;
+				int minValue;
+				for (startScan = 0; startScan < (size - 1); startScan++)
+				{
+					minIndex = startScan;
+					minValue = dateCopy[startScan].getYear();
+					for (int index = startScan + 1; index < size; index++)
+					{
+						if (dateCopy[index].getYear() < minValue)
+						{
+							minValue = dateCopy[index].getYear();
+							minIndex = index;
+						}
+					}
+					dateCopy[minIndex] = dateCopy[startScan];
+					dateCopy[startScan].setYear(minValue);
 
 
-		}
+					for (int i = 0; i < 6; i++)
+					{
+						cout << "Title and release year of books will be printed below:" << endl << endl;
 
-		//List by Age
-		if (choice == 6)
-		{
+						cout << "The title is:\t" << bookCopy[i].getTitle() << "\t";
+						cout << "The release year is:\t" << dateCopy[i].getYear() << endl;
+					}
+				}
 
+				//BREAK
+				if (choice == 7)
+				{
+					break;
+				}
+			}
+		};
 
-		}
-
-		//BREAK
-		if (choice == 7)
-		{
-			break;
-		}
-		
 	}
-		
-
-
-};
+	*/

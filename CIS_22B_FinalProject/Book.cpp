@@ -92,7 +92,6 @@ Book::Book(std::string toParse){
 }
 std::string Book::toString()
 		{	if(ISBN.size() != 0){
-				std::cout << "dfff" << std::endl;
 				return (ISBN + "|" + title + "|" + author + "|" + publisher + "|" + std::to_string(quantity) + "|"+ std::to_string(retailPrice) + "|"+ std::to_string(wholeSaleCost) + "|"
 					+ (published.getDay() < 10 ? "0":"") + std::to_string(published.getDay())
 					+ (published.getMonth() < 10 ? "0" : "") + std::to_string(published.getMonth())
@@ -103,40 +102,9 @@ std::string Book::toString()
 			}
 			return "";
 			};
-/*
-Book::Book(std::string toParse){
-	std::string toTrunc = toParse;
 
 
-	ISBN = toTrunc.substr(0, toTrunc.find("|"));
-	toTrunc = toTrunc.substr(toTrunc.find("|")+1);
-//	std::cout << toTrunc;
 
-
-	title = toTrunc.substr(0, toTrunc.find("|"));
-	toTrunc = toTrunc.substr(toTrunc.find("|")+1);
-
-	author = toTrunc.substr(0, toTrunc.find("|"));
-	toTrunc = toTrunc.substr(toTrunc.find("|")+1);
-
-	publisher = toTrunc.substr(0, toTrunc.find("|"));
-	toTrunc = toTrunc.substr(toTrunc.find("|")+1);
-
-	quantity = std::stoi(toTrunc.substr(0, toTrunc.find("|")));
-	toTrunc = toTrunc.substr(toTrunc.find("|")+1);
-
-	wholeSaleCost = std::stod(toTrunc.substr(0, toTrunc.find("|")));
-	toTrunc = toTrunc.substr(toTrunc.find("|")+1);
-
-	retailPrice = std::stod(toTrunc.substr(0, toTrunc.find("|")));
-	toTrunc = toTrunc.substr(toTrunc.find("|")+1);
-
-	published = Date(toTrunc.substr(0, toTrunc.find("|")));
-	toTrunc = toTrunc.substr(toTrunc.find("|")+1);
-
-	added = Date(toTrunc);
-}
-*/
 
 
 //std::string Book::set
